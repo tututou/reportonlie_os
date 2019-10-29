@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ tab_name }}{% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-4 column">
+				</div>
+				<div class="col-md-4 column">
+					<h3>B27 报告上传</h3>
+					<form action="/upload/" method="POST" enctype="multipart/form-data">
+							<input type="file" name="2" onchange="getfilename(this)" multiple="multiple">
+							<p class="showfilename"></p>
+
+					</form>
+				</div>
+				<div class="col-md-4 column">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+	function getfilename(f) {
+		var _el = f.files;
+		var _name = "";
+		for (var i = 0; i<_el.length; i++){
+			if (i == _el.length-1){
+				_name += _el[i].name
+			}
+			else{
+				_name += _el[i].name + "、" + "<br/>"
+			}
+			$('.showfilename').html(_name)
+
+	}
+}
+</script>
+
+{% endblock %}

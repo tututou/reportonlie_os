@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ patient_name_or_id }}-查询结果{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
+		{% if total_query_num == 0 %}
+			<h4>没有查到相关检测报告</h4>
+		{% else %}
+			<!--淋巴-->
+            {% if lym_items_num != 0 %}
+                <div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+                    <h4 align="center">淋巴细胞亚群</h4>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>姓名</td>
+                                <td>ID</td>
+                                <td>检测时间</td>
+                                <td>查看</td>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            {% for i in lym_items %}
+                            <tr>
+                                <td>{{ i.patient_name }}</td>
+                                <td>{{ i.patient_ID }}</td>
+                                <td>{{ i.patient_RPmtime }}</td>
+                                <td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+			<br>
+            {% endif %}
+			<!--B27-->
+            {% if b27_items_num != 0 %}
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">人类白细胞B27测定</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in b27_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<br>
+            {% endif %}
+			<!--TH-->
+            {% if th_items_num != 0 %}
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">群体抗体反应</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in th_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<br>
+            {% endif %}
+			<!--JIEHE-->
+			{% if jiehe_items_num != 0 %}
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">群体抗体反应</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in jiehe_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<br>
+            {% endif %}
+            {% if fbkt_items_num != 0 %}
+			<!--FBKT-->
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">封闭抗体检测</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in fbkt_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<br>
+            {% endif %}
+            {% if cd34_items_num != 0 %}
+			<!--CD34-->
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">造血干细胞检测</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in cd34_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+                            <td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<br>
+            {% endif %}
+			<!--IRP-->
+			{% if irp_items_num != 0 %}
+			<div style="border:1px solid #000000;box-shadow:0 0 5px #C0C0C0;">
+				<h4 align="center">自身免疫性溶血</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						{% for i in irp_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% endif %}
+		{% endif %}
+		</div>
+
+		<div class="col-md-2 column">
+		</div>
+	</div>
+</div>
+{% endblock %}

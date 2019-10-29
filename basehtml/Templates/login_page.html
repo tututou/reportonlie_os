@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <style type="text/css">
+        .linear{
+        background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#b8c4cb), to(#f6f6f8));
+        FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#b8c4cb,endColorStr=red); /*IE 6 7 8*/
+
+        background: -ms-linear-gradient(top, #fff,  #0000ff);        /* IE 10 */
+
+        background:-moz-linear-gradient(top,#b8c4cb,#f6f6f8);/*火狐*/
+        }
+    </style>
+</head>
+<body>
+<div class="container linear" >
+
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-7 column">
+            <div style="margin-top:20%;">
+                <h2 align="center">中心实验室报告在线浏览系统</h2>
+                <br>
+                <br>
+                <br>
+
+            </div>
+            <div>
+                <p style="font-size:14px;float:right;">版权所有：析疑思维&nbsp&nbsp&nbsp&nbsp联系电话：15236690562</p>
+                <br>
+                <p style="font-size:12px;float:right;"></p>
+                <br>
+            </div>
+            <div  >
+
+                <form method="post" action="/login_action/">
+                    {% csrf_token %}
+                    {% if message %}
+                        <div class="alter alter-warning">{{ message }}</div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ login_form.username.label_tag }}
+                        {{ login_form.username }}
+                    </div>
+                    <div class="form-group">
+                        {{ login_form.password.label_tag }}
+                        {{ login_form.password }}
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <!--<div class="form-group">-->
+                        <!--{{ login_form.captcha.label_tag }}-->
+                        <!--{{ login_form.captcha }}-->
+                    <!--</div>-->
+                    <button class="btn btn-primary" type="submit">管理员登陆</button>
+                    <a href="/query_page/" type="button" class="btn btn-primary">一般用户</a>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3 column">
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

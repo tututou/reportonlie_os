@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ patient_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-8 column">
+            <div><h4 align="center"><b>{{ patient_name }}</b></h4></div>
+            <div id="my_echart" style="width:768px; height:400px;"></div>
+            <script type="text/javascript">
+                var my_echart = echarts.init(document.getElementById('my_echart'));
+
+                var jsoption = {{ option | safe }};
+                var jstr = JSON.stringify(jsoption)
+                var option = JSON.parse(jstr)
+
+                my_echart.setOption(option);
+            </script>
+            <div>
+                <p><b>1.&nbsp图片上方中间部分有若干选项可点击，如只看某一项检测，把其他的都点掉即可。</b></p>
+                <p><b>2.&nbsp图片上方右边部分有若干选项可点击，可切换条形图，可堆叠，请按需选择。</b></p>
+                <p><b>3.&nbsp群体抗体反应检测中，有时候IL-6值会过大影响其他数据显示，可将鼠标至于具体某天上看具体数值</b></p>
+            </div>
+        </div>
+        <div class="col-md-2 column">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

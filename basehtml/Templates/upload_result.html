@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}上传结果界面{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-2 column">
+				</div>
+				<div class="col-md-8 column">
+					<div>
+                        <br>
+                        <br>
+                        <br>
+                        <p><b>{{ upload_result }} </b></p>
+					</div>
+                    <div>
+                        <p><br></p>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>ID</td>
+                                    <td>上传时间</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in today_upload_flie %}
+                                    <tr>
+                                        <td>{{ i.patient_name }}</td>
+                                        <td>{{ i.patient_ID }}</td>
+                                        <td>{{ i.patient_RPmtime|date:"Y-m-d H:i:s" }}</td>
+                                        <td><a href="{{ i.patient_check_url }}" target="_blank">查看</a></td>
+                                        <td><a id="_{{ i.patient_RPmtime }}" href="{{ i.patient_delete_url }}" onclick="delete_this_rp();">删除</a></td>
+                                    </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+				</div>
+				<div class="col-md-2 column">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function delete_this_rp() {
+    // body...
+    var url = this.href;
+    $.ajax(url,{
+        data:{
+            'csrfmiddlewaretoken':'csrf_token'
+        },
+        type:'POST',
+        success:function (response_data) {
+            // body...
+            if (response_data.status == 'success'){
+                alert(response_data.message);
+                window.location.reload();
+            }
+            else{
+                alert(response_data.message);
+            }
+        },
+        error:function (xhr,status,error) {
+            alert(xhr.status+':'+xhr.status.Text);
+        },
+    });
+};
+
+
+</script>
+{% endblock %}

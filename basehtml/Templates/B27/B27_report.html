@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ patient_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
+
+			<div style="width:768px;height:1086px;border:1px solid gray;box-shadow:0 0 5px #000;">
+				<p>&nbsp</p>
+			    <p style="font-size:29px;">&nbsp解放军第九八九医院流式细胞术HLA-B27检测分析报告单</p>
+				<br>
+                <table class="table table-hover">
+                    <tr>
+                        <th>姓名:</th>
+                        <th>{{ patient_name }}</th>
+                        <th>性别：</th>
+                        <th>{{ patient_sex }}</th>
+                        <th>年龄：</th>
+                        <th>{{ patient_age }}</th>
+                        <th>科室：</th>
+                        <th>{{ patient_department }}</th>
+                    </tr>
+                    <tr>
+                        <th>住院号:</th>
+                        <th>&nbsp</th>
+                        <th>ID号：</th>
+                        <th>{{ patient_ID }}</th>
+                        <th>临床诊断:</th>
+                        <th>&nbsp</th>
+                        <th>送检医师:</th>
+                        <th>{{ submit_doctor_name }}</th>
+                    </tr>
+                </table>
+                <div style="margin:0 auto; width:664px;"><!--style="margin:0 auto; width:664px; height:398px;"-->
+                    <div ><img src="{{ patient_imageurl }}"></div>
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:20px;"><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结果：HLA-B27&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ patient_result }}</b></p>
+                    <p style="font-size:16px;color:red;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ report_opinion }}</p>
+                </div>
+                
+
+                <p>&nbsp</p>
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">送检时间：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:14px;">{{ Submit_Sample_time }}</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">检验技师：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">{{ Inspection_person }}</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">检测时间：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:14px;">{{ Detection_time }}</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">报告医师：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">{{ Report_Doctor }}</p>
+                        </th>
+                    </tr>
+                </table>
+                <p><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp报告生成时间{{ RPmtime|date:"Y-m-d H:i:s" }}</b></p>
+                <p style="font-size:12px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本报告仅对检测样品负责，被检样品留存3天备查&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp电话：0379-64169373</p>
+            </div>
+		</div>
+		<div class="col-md-2 column">
+		</div>
+		
+	</div>
+</div>
+
+{% endblock %}

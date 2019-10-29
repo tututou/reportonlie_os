@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ tab_name }}{% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-4 column">
+				</div>
+				<div class="col-md-4 column">
+					<h3>点击文件名预览</h3>
+					{% for i in flie_success_list %}
+					    <p><a href="http://127.0.0.1:8000/{{ project_name }}/{{ i }}/"></a></p>
+					{% endfor %}
+				</div>
+				<div class="col-md-4 column">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ patient_name_or_id }}-查询结果{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
+			<div>
+				<h2>群体抗体反应</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<td>姓名</td>
+							<td>ID</td>
+							<td>检测时间</td>
+							<td>查看</td>
+						</tr>
+						
+					</thead>
+					<tbody>
+						{% for i in lym_items %}
+						<tr>
+							<td>{{ i.patient_name }}</td>
+							<td>{{ i.patient_ID }}</td>
+							<td>{{ i.patient_RPmtime }}</td>
+							<td><a href="{{ i.patient_check_url }}" target="_blank">查看</a></td>
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+
+
+			</div>
+		</div>
+		<div class="col-md-2 column">
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ patient_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-8 column">
+
+            <div style="width:768px;height:1122px;border:1px solid gray;box-shadow:0 0 5px #000;">
+                <p>&nbsp</p>
+                <p style="font-size:26px;">&nbsp解放军第九八九医院流式细胞仪Th1/Th2细胞亚群检测分析报告单</p>
+                <br>
+                <br>
+                <table class="table table-hover">
+                    <tr>
+                        <th>姓名:</th>
+                        <th>{{ patient_name }}</th>
+                        <th>性别：</th>
+                        <th>{{ patient_sex }}</th>
+                        <th>年龄：</th>
+                        <th>{{ patient_age }}</th>
+                        <th>科室：</th>
+                        <th>{{ patient_department }}</th>
+                    </tr>
+                    <tr>
+                        <th>住院号:</th>
+                        <th>&nbsp</th>
+                        <th>ID号：</th>
+                        <th>{{ patient_ID }}</th>
+                        <th>临床诊断:</th>
+                        <th>&nbsp</th>
+                        <th>送检医师:</th>
+                        <th>{{ submit_doctor_name }}</th>
+                    </tr>
+                </table>
+                <br>
+                <div style="margin:0 auto; width:664px; ">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="40%">检验项目</th>
+                            <th colspan="2" width="30%">检测结果</th>
+                            <th width="30%">参考值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="40%">IL-2</td>
+                            <td width="15%">{{ patient_IL2 }}</td>
+                            <td width="15%">
+                                {% if patient_IL2 > 5.71 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-5.71</td>
+                        </tr>
+                        <tr>
+                            <td width="40%">IL-4</td>
+                            <td width="15%">{{ patient_IL4 }}</td>
+                            <td width="15%">
+                                {% if patient_IL4 > 2.80 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-2.80</td>
+                        </tr>
+                        <tr>
+                            <td width="40%">IL-6</td>
+                            <td width="15%">{{ patient_IL6 }}</td>
+                            <td width="15%">
+                                {% if patient_IL6 > 5.30 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-5.30</td>
+                        </tr>
+                        <tr>
+                            <td width="40%">IL-10</td>
+                            <td width="15%">{{ patient_IL10 }}</td>
+                            <td width="15%">
+                                {% if patient_IL10 > 4.91 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-4.91</td>
+                        </tr>
+                        <tr>
+                            <td width="40%">TNF-α</td>
+                            <td width="15%">{{ patient_TNF }}</td>
+                            <td width="15%">
+                                {% if patient_TNF > 2.31 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-2.31</td>
+                        </tr>
+                        <tr>
+                            <td width="40%">IFN-γ</td>
+                            <td width="15%">{{ patient_IFN }}</td>
+                            <td width="15%">
+                                {% if patient_IFN > 7.42 %}
+                                    <font color="red">Hi</font>
+                                {% else %}
+                                    &nbsp
+                                {% endif %}
+                            </td>
+                            <td width="30%">0-7.42</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <P>&nbsp</P>
+                <br>
+                <ol>
+                    <li>辅助性T细胞<br>Th1: 分泌IL-2、TNF-ɑ 、IFN- γ , 介导细胞免疫应答和迟发型过敏反应。Th2:分泌IL-4、IL-6、IL-10，辅助B细胞活化分化为浆细胞并产生抗体，参与体液免疫应答；
+                    </li>
+                    <li>
+                        非肿瘤患者<br>
+                        IL-6、IL-10均升高10倍，可能提示革兰氏阴性菌感染；IL-6升高2倍以上或＞10倍，但IL-10正常值或增高值＜10倍，可能提示革兰氏阳性菌感染。只有IFN-γ升高，提示真菌、结核等胞内菌感染可能。如果单纯IL-10升高10倍以上，并且IFN-γ也有升高，可能提示嗜血，需排除EB病毒感染等可能。<br>
+                        <font style="color:red;">为避免误判，建议监测细胞因子变化，以确认抗生素有效性。</font>
+                    </li>
+                    <li>
+                        肿瘤患者<br>
+                        进展期病人，Th1细胞分泌IL-2、INF-γ减少，Th2分泌IL-4、IL-6、IL-10增多，Th1向Th2分化；抗肿瘤免疫中，Th1细胞主导机体的细胞免疫功能，分泌Th1类细胞因子，对抗肿瘤免疫反应起非常重要的作用。
+                    </li>
+                    <li>
+                        细胞因子风暴<br>
+                        IL-6和IL-10等迅速升高上百倍，甚至数千倍，需考虑感染或肿瘤引起的细胞因子风暴，往往病情迅速发展，需密切观察。
+                    </li>
+                </ol>
+                <p>更多其他未知情况请结合临床资料，综合参考。</p>
+                <br>
+                <p><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp报告生成时间：&nbsp&nbsp&nbsp{{ RPmtime|date:"Y-m-d H:i:s" }}</b></p>
+                <p>&nbsp</p>
+                
+            </div>
+            <div>
+                <table class="table table-hover">
+                    <tr>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">送检时间：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:14px;">{{ Submit_Sample_time }}</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">检验技师：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">{{ Inspection_person }}</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">检测时间：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:14px;">{{ Detection_time }}</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">报告医师：</p>
+                        </th>
+                        <th>
+                            <p style="font-family:SimHei;font-size:16px;">{{ Report_Doctor }}</p>
+                        </th>
+                    </tr>
+                </table>
+                
+                <p style="font-size:12px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp本报告仅对检测样品负责，被检样品留存3天备查&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp电话：0379-64169373</p>
+            </div>
+
+        </div>
+            <br>
+            <div style="width:768px;height:160px;border:1px solid gray;box-shadow:0 0 5px #000;">
+                <br>
+                <br>
+                <br>
+                <h3 align="center"><a href="{{ echart_href }}" target="_blank">查看&nbsp&nbsp{{ patient_name }}&nbsp&nbsp&nbsp&nbsp的数据曲线图</a></h3>
+            </div>
+        </div>
+        <div class="col-md-2 column">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

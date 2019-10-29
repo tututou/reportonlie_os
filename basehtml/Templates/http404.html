@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}404{% endblock %}
+
+{% block content %}
+<style>
+    .center img {
+    width: 80px;
+    height: 80px
+}
+</style>
+
+<div class="container-fluid" >
+    <!--style="background-image:url({% static 'images/background.jpg' %}) "-->
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="row-fluid">
+                <div class="col-md-4 column">
+                    <h2>
+                        404
+                    </h2>
+                    <p>
+                        您要访问的网页不存在 请&nbsp <a href="homepage.html">返回主页</a> 或者 确定你不是机器人
+                    </p>
+                    <p> 页面将在<span id="gotohometime"></span>秒后自动跳转&nbsp 或者点击下方按钮</p>
+                    <p>
+                         <a class="btn" href="homepage.html">主页</a>
+                    </p>
+                </div>
+        </div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    onload=function(){
+        setInterval(go, 1000);
+    };
+    var x=5; //利用了全局变量来执行
+    function go(){
+    x--;
+        if(x>0){
+        document.getElementById("gotohometime").innerHTML=x;  //每次设置的x的值都不一样了。
+        }else{
+        location.href='http://127.0.0.1:8000/homepage/';
+        }
+    }
+</script>
+{% endblock %}

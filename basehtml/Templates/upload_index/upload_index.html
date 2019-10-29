@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}上传分类{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
+			<h2 align="center">上传项目类别</h2>
+			<ul class="nav nav-pills">
+				{# LYM #}
+				<li >
+					 <a href="/upload/LYM"> <span class="badge pull-right">LYM</span> 淋巴细胞亚群测定</a>
+				</li>
+				{# B27 #}
+                <li >
+					 <a href="/upload/B27"> <span class="badge pull-right">B27</span> 人类白细胞B27测定</a>
+				</li>
+				{# TH #}
+                <li >
+					 <a href="/upload/TH"> <span class="badge pull-right">TH</span> TH亚群细胞测定</a>
+				</li>
+				{# CD34 #}
+                <li >
+					 <a href="/upload/CD34"> <span class="badge pull-right">CD34</span> 造血干细胞CD34测定</a>
+				</li>
+				{# FBKT #}
+				<li>
+					 <a href="/upload/FBKT"> <span class="badge pull-right">FBKT</span> 封闭抗体</a>
+				</li>
+				{# IRP #}
+				<li>
+					 <a href="/upload/IRP"> <span class="badge pull-right">IRP</span> 自身免疫性溶血</a>
+				</li>
+				{# TUBERCULOSIS #}
+				<li>
+					 <a href="/upload/JIEHE"> <span class="badge pull-right">结核T</span> 结核分枝杆菌T细胞检测</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-2 column">
+		</div>
+	</div>
+</div>
+{% endblock %}

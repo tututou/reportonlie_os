@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}{{ tab_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-2 column">
+				</div>
+				<div class="col-md-8 column">
+					<div>
+                        <br>
+                        <br>
+                        <br>
+                        <p><b>{{ delete_result }} </b></p>
+					</div>
+
+				</div>
+				<div class="col-md-2 column">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
