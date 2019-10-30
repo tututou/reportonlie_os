@@ -89,9 +89,9 @@ WSGI_APPLICATION = 'reportonline_os.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'zxsys',
+        'NAME': 'yourname',
         'USER': 'root',
-        'PASSWORD': '7551915668',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS':{
